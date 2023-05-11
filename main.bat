@@ -2,6 +2,7 @@
 title Mis Claves Wifi 
 color F1
 mode 140,50
+
 :Inicio
 echo.
 echo.
@@ -14,11 +15,8 @@ echo.
 echo       ==============================================================================================================================
 echo.
 echo.
-
-set/p Menu=Enter para ver redes=
-
-if "%Menu%"== "1" (goto :1)
-
+set /p Menu=Enter para ver redes=
+if "%Menu%"=="1" goto :1
 echo.
 
 :1
@@ -27,4 +25,4 @@ set /p escribir=Escribe el nombre de la red y presiona Enter para ver informacio
 netsh wlan show profile name=%escribir% key=clear
 pause
 cls
-(goto :Inicio)
+goto :Inicio
