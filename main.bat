@@ -22,7 +22,12 @@ echo.
 :1
 netsh wlan show profile
 set /p escribir=Escribe el nombre de la red y presiona Enter para ver informacion y clave=
-netsh wlan show profile name=%escribir% key=clear
-pause
+if "%escribir%"=="" (
+    echo No se ha ingresado un nombre de red.
+    pause
+) else (
+    netsh wlan show profile name="%escribir%" key=clear
+    pause
+)
 cls
 goto :Inicio
